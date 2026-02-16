@@ -1,5 +1,5 @@
-import fastify from "fastify"
-import crypto from "node:crypto" // esse "node" na frente é opcional dessa importação. mas está sendo usado pra evidenciar q é uma dependencia natural do node
+import fastify from 'fastify'
+import crypto from 'crypto'
 
 const server = fastify({
   logger: {
