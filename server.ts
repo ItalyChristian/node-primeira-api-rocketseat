@@ -1,8 +1,10 @@
 import { eq } from 'drizzle-orm'
 import fastify from 'fastify'
+import { fastifySwagger } from '@fastify/swagger'
+import { fastifySwaggerUi } from '@fastify/swagger-ui'
 import { db } from './src/database/client.ts'
 import { courses } from './src/database/schema.ts'
-import { validatorCompiler, serializerCompiler, type ZodTypeProvider } from 'fastify-type-provider-zod'
+import { validatorCompiler, serializerCompiler, type ZodTypeProvider, jsonSchemaTransform } from 'fastify-type-provider-zod'
 import { z } from 'zod'
 
 const server = fastify({
@@ -20,21 +22,38 @@ const server = fastify({
 server.setSerializerCompiler(serializerCompiler)
 server.setValidatorCompiler(validatorCompiler)
 
+server.register(fastifySwagger, {
+  openapi: {
+    info: {
+      title: 'Desafio Node.js',
+      version: '1.0.0'
+    }
+  },
+  transform: jsonSchemaTransform
+})
+server.register(fastifySwaggerUi, {
+  routePrefix: '/docs'
+})
+
 server.get('/courses', async(request, reply) => {
   const result = await db.select().from(courses)
 
   return reply.send({ courses: result })
 })
 
-server.get('/courses/:id', async (request, reply) => {
-  type Params = {
-    id: string
-  }
+server.get('/courses/:id', {
+  schema: {
+    params: z.object({
+      id: z.uuid()
+    })
+  },
+}, async (request, reply) => {
+  const courseId = request.params.id
   
-  const params = request.params as Params
-  const courseId = params.id
-  
-  const result = await db.select().from(courses).where(eq(courses.id, courseId))
+  const result = await db
+  .select()
+  .from(courses)
+  .where(eq(courses.id, courseId))
 
   if(result.length > 0) {
     return { course: result[0] }

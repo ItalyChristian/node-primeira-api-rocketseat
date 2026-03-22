@@ -3,3 +3,7 @@ GET http://localhost:3333/courses
 ###
 
 POST http://localhost:3333/courses
+
+###
+
+GET http://localhost:3333/courses/4e640010-baf6-400e-9e30-b93ea7083ce3
