@@ -1,11 +1,10 @@
-import { eq } from 'drizzle-orm'
 import fastify from 'fastify'
 import { fastifySwagger } from '@fastify/swagger'
 import { fastifySwaggerUi } from '@fastify/swagger-ui'
-import { db } from './src/database/client.ts'
-import { courses } from './src/database/schema.ts'
 import { validatorCompiler, serializerCompiler, type ZodTypeProvider, jsonSchemaTransform } from 'fastify-type-provider-zod'
-import { z } from 'zod'
+import { createCourseRoute } from './src/routes/create-course.ts'
+import { getCoursesRoute } from './src/routes/get-courses.ts'
+import { getCourseByIdRoute } from './src/routes/get-courses-by-id.ts'
 
 const server = fastify({
   logger: {
@@ -31,52 +30,14 @@ server.register(fastifySwagger, {
   },
   transform: jsonSchemaTransform
 })
+
 server.register(fastifySwaggerUi, {
   routePrefix: '/docs'
 })
 
-server.get('/courses', async(request, reply) => {
-  const result = await db.select().from(courses)
-
-  return reply.send({ courses: result })
-})
-
-server.get('/courses/:id', {
-  schema: {
-    params: z.object({
-      id: z.uuid()
-    })
-  },
-}, async (request, reply) => {
-  const courseId = request.params.id
-  
-  const result = await db
-  .select()
-  .from(courses)
-  .where(eq(courses.id, courseId))
-
-  if(result.length > 0) {
-    return { course: result[0] }
-  }
-  
-  return reply.status(404).send()
-})
-
-server.post('/courses', { 
-  schema: { 
-    body: z.object({
-      title: z.string().min(5, 'Título precisa ter no mínimo 5 caracteres.'),
-    })
-  }, 
-}, async (request, reply) => { 
-  const courseTitle = request.body.title
-
-  const result = await db.insert(courses).values({
-    title: courseTitle,
-  }).returning()
-
-  return reply.status(201).send({ courseId: result[0].id })
-})
+server.register(getCoursesRoute)
+server.register(getCourseByIdRoute)
+server.register(createCourseRoute)
 
 server.listen({ port: 3333 }).then(() => {
   console.log('HTTP server running!')
