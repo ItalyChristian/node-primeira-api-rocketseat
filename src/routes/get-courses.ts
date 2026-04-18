@@ -1,5 +1,6 @@
 import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod";
 import { db } from "../database/client.ts";
+import { ilike, asc } from "drizzle-orm";
 import { courses } from "../database/schema.ts";
 import z from "zod";
 
@@ -10,6 +11,11 @@ export const getCoursesRoute: FastifyPluginAsyncZod = async (server) => {
       schema: {
         tags: ["courses"],
         summary: "Get all courses",
+        querystring: z.object({
+          search: z.string().optional(),
+          orderBy: z.enum(['title']).optional().default('title'),
+          page: z.coerce.number().optional().default(1)
+        }),
         response: {
           200: z.object({
             courses: z.array(
@@ -18,19 +24,28 @@ export const getCoursesRoute: FastifyPluginAsyncZod = async (server) => {
                 title: z.string(),
               }),
             ),
+            total: z.number()
           }),
         },
       },
     },
     async (request, reply) => {
+      const { search, orderBy, page } = request.query
+
       const result = await db
         .select({
           id: courses.id,
           title: courses.title,
         })
-        .from(courses);
+        .from(courses)
+        .orderBy(asc(courses[orderBy]))
+        .offset((page - 1) * 2)
+        .limit(20)
+        .where(search ? ilike(courses.title, `%${search}%`) : undefined);
+      
+      const total = await db.$count(courses, search ? ilike(courses.title, `%${search}%`) : undefined)
 
-      return reply.send({ courses: result });
+      return reply.send({ courses: result, total });
     },
   );
 };
