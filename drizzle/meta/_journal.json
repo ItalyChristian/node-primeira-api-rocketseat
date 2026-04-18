@@ -15,6 +15,20 @@
       "when": 1774204660069,
       "tag": "0001_smart_famine",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1776555605270,
+      "tag": "0002_friendly_moira_mactaggert",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1776555760741,
+      "tag": "0003_common_goliath",
+      "breakpoints": true
     }
   ]
 }
