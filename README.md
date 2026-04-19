@@ -16,7 +16,8 @@ Este projeto foi construído utilizando:
 - Drizzle ORM
 - Docker 
 - Zod *(validação de dados)*
-- Swagger 
+- Swagger
+- PostgreSQL
 
 ---
 
@@ -36,3 +37,21 @@ Este projeto foi construído utilizando:
 - Boas práticas de código  
 
 ---
+Passo a Passo para Iniciar a Aplicação
+
+1 . Instalar dependências:
+Execute npm install na raiz do projeto para instalar os pacotes.
+
+2. Iniciar o banco de dados:
+Rode docker compose up -d para subir o PostgreSQL em background.
+
+3. Executar migrations (se necessário):
+Use npm run db:migrate para aplicar as migrações no banco.
+
+4. Rodar o servidor:
+Execute npm run dev para iniciar o servidor em modo de desenvolvimento (porta 3333).
+
+5 . Acessar a aplicação:
+API: http://localhost:3333/courses (exemplo de rota)
+Documentação Swagger: http://localhost:3333/docs
+
