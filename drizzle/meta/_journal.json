@@ -29,6 +29,20 @@
       "when": 1776555760741,
       "tag": "0003_common_goliath",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1776557173278,
+      "tag": "0004_foamy_sandman",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1776558034314,
+      "tag": "0005_strong_spectrum",
+      "breakpoints": true
     }
   ]
 }
