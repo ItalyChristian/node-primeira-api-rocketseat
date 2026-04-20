@@ -22,7 +22,7 @@ export const getCourseByIdRoute: FastifyPluginAsyncZod = async (server) => {
               description: z.string().nullable(),
             })
           }),
-          404: z.null().describe,
+          404: z.null().describe("Course not found"),
         },
       },
     },
@@ -38,7 +38,7 @@ export const getCourseByIdRoute: FastifyPluginAsyncZod = async (server) => {
         return { course: result[0] };
       }
 
-      return reply.status(404).send()
+      return reply.status(404).send(null)
     },
   );
 };

@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "node --env-file .env --watch server.ts",
+    "dev": "node --env-file .env --watch src/server.ts",
     "db:seed": "node --env-file .env src/database/seed.ts",
     "db:generate": "drizzle-kit generate",
-    "db:migrate": "drizzle-kit migrate"
+    "db:migrate": "drizzle-kit migrate",
+    "test": "vitest run"
   },
   "keywords": [],
   "author": "",
@@ -25,7 +26,10 @@
   "devDependencies": {
     "@faker-js/faker": "^10.4.0",
     "@types/node": "^25.2.3",
+    "@types/supertest": "^7.2.0",
     "drizzle-kit": "^0.31.10",
-    "typescript": "^5.9.3"
+    "supertest": "^7.2.2",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.4"
   }
 }
