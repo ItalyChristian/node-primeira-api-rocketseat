@@ -51,7 +51,10 @@ Use npm run db:migrate para aplicar as migrações no banco.
 4. Rodar o servidor:
 Execute npm run dev para iniciar o servidor em modo de desenvolvimento (porta 3333).
 
-5 . Acessar a aplicação:
+5. Drizzle Studio:
+Execute npx drizzle-kit studio
+
+6 . Acessar a aplicação:
 API: http://localhost:3333/courses (exemplo de rota)
 Documentação Swagger: http://localhost:3333/docs
 
