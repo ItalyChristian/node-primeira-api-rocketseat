@@ -9,7 +9,7 @@ import {
 } from "fastify-type-provider-zod";
 import { createCourseRoute } from "./routes/create-course.ts";
 import { getCoursesRoute } from "./routes/get-courses.ts";
-import { getCourseByIdRoute } from "./routes/get-courses-by-id.ts";
+import { getCourseByIdRoute } from "./routes/get-course-by-id.ts";
 
 const server = fastify({
   logger: {
