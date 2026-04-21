@@ -10,7 +10,7 @@ test("get courses", async () => {
   const titleId = randomUUID()
   const course = await makeCourse(titleId)
 
-  const response = await request(server.server).get(`/courses?search${titleId}`)
+  const response = await request(server.server).get(`/courses?search=${titleId}`)
 
   expect(response.status).toEqual(200)
   expect(response.body).toEqual({
