@@ -15,9 +15,10 @@ Este projeto foi construído utilizando:
 - Fastify 
 - Drizzle ORM
 - Docker 
-- Zod *(validação de dados)*
+- Zod 
 - Swagger
 - PostgreSQL
+- Argon2
 
 ---
 

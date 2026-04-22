@@ -7,3 +7,13 @@ POST http://localhost:3333/courses
 ###
 
 GET http://localhost:3333/courses/4e640010-baf6-400e-9e30-b93ea7083ce3
+
+###
+
+POST http://localhost:3333/sessions
+Content-Type: application/json
+
+{
+  "email": "Salvador9@gmail.com",
+  "password": "123456"
+}
