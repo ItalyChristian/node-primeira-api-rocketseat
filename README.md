@@ -26,7 +26,9 @@ Este projeto foi construído utilizando:
 
 - ✅ Criação de registros  
 - ✅ Listagem de dados
-- ✅ Validação de dados  
+- ✅ Validação de dados
+- ✅ Autenticação
+- ✅ Rotas autenticadas
 
 ---
 
