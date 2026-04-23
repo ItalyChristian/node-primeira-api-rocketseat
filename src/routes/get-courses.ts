@@ -16,6 +16,7 @@ export const getCoursesRoute: FastifyPluginAsyncZod = async (server) => {
       schema: {
         tags: ["courses"],
         summary: "Get all courses",
+        security: [{ bearerAuth: [] }],
         querystring: z.object({
           search: z.string().optional(),
           orderBy: z.enum(["title"]).optional().default("title"),

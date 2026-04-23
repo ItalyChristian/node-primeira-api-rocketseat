@@ -34,6 +34,15 @@ if (process.env.NODE_ENV === "development") {
         title: "Desafio Node.js",
         version: "1.0.0",
       },
+      components: {
+        securitySchemes: {
+          bearerAuth: {
+            type: "http",
+            scheme: "bearer",
+            bearerFormat: "JWT",
+          },
+        },
+      },
     },
     transform: jsonSchemaTransform,
   });

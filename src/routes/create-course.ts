@@ -15,6 +15,7 @@ export const createCourseRoute: FastifyPluginAsyncZod = async (server) => {
       schema: {
         tags: ["courses"],
         summary: "Create a course",
+        security: [{ bearerAuth: [] }],
         description:
           "Essa rota recebe um título e cria um curso no banco de dados",
         body: z.object({

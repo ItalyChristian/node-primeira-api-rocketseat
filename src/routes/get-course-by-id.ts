@@ -14,6 +14,7 @@ export const getCourseByIdRoute: FastifyPluginAsyncZod = async (server) => {
       schema: {
         tags: ["courses"],
         summary: "Get course by ID",
+        security: [{ bearerAuth: [] }],
         params: z.object({
           id: z.uuid(),
         }),

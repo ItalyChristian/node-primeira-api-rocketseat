@@ -1,10 +1,11 @@
 GET http://localhost:3333/courses
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjMDgxNjQ1NS1kZjNjLTRhM2UtOTgwYi03MWUwZGJjZDYzNjQiLCJyb2xlIjoic3R1ZGVudCIsImlhdCI6MTc3Njk3MjMxNX0.2wFuFL-LGjrQX9b015xSxVMHxej392x7lpr6PPz_Smc
 
 ###
 
 POST http://localhost:3333/courses
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1NTEyZWFiZi1hOTFjLTRmODctOTkzYS1mNzMxZjg2N2M0N2UiLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc3NjkwMzcwOX0.8DpiyJM-YPGiAtXtzWeUgJfP4eJC7wdsaVMWXv9JVKI
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjMDgxNjQ1NS1kZjNjLTRhM2UtOTgwYi03MWUwZGJjZDYzNjQiLCJyb2xlIjoic3R1ZGVudCIsImlhdCI6MTc3Njk3MjMxNX0.2wFuFL-LGjrQX9b015xSxVMHxej392x7lpr6PPz_Smc
 
 { 
   "title": "Curso de Java + spring boot" 
@@ -12,15 +13,14 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1NTEyZWFiZi1hOTFj
 
 ###
 
-GET http://localhost:3333/courses/0b135d58-2335-4251-8a03-7b887aaabbde
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1NTEyZWFiZi1hOTFjLTRmODctOTkzYS1mNzMxZjg2N2M0N2UiLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc3NjkwMzcwOX0.8DpiyJM-YPGiAtXtzWeUgJfP4eJC7wdsaVMWXv9JVKI
-
+GET http://localhost:3333/courses/882e1fcd-45c8-4f3c-974f-41e5104b861f
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjMDgxNjQ1NS1kZjNjLTRhM2UtOTgwYi03MWUwZGJjZDYzNjQiLCJyb2xlIjoic3R1ZGVudCIsImlhdCI6MTc3Njk3MjMxNX0.2wFuFL-LGjrQX9b015xSxVMHxej392x7lpr6PPz_Smc
 ###
 
 POST http://localhost:3333/sessions
 Content-Type: application/json
 
 {
-  "email": "geraldinhoMCR@hotmail.com",
+  "email": "Salvador4@live.com",
   "password": "123456"
 }
