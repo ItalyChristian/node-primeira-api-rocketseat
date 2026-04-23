@@ -3,10 +3,17 @@ GET http://localhost:3333/courses
 ###
 
 POST http://localhost:3333/courses
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1NTEyZWFiZi1hOTFjLTRmODctOTkzYS1mNzMxZjg2N2M0N2UiLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc3NjkwMzcwOX0.8DpiyJM-YPGiAtXtzWeUgJfP4eJC7wdsaVMWXv9JVKI
+
+{ 
+  "title": "Curso de Java + spring boot" 
+}
 
 ###
 
-GET http://localhost:3333/courses/4e640010-baf6-400e-9e30-b93ea7083ce3
+GET http://localhost:3333/courses/0b135d58-2335-4251-8a03-7b887aaabbde
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1NTEyZWFiZi1hOTFjLTRmODctOTkzYS1mNzMxZjg2N2M0N2UiLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc3NjkwMzcwOX0.8DpiyJM-YPGiAtXtzWeUgJfP4eJC7wdsaVMWXv9JVKI
 
 ###
 
@@ -14,6 +21,6 @@ POST http://localhost:3333/sessions
 Content-Type: application/json
 
 {
-  "email": "Salvador9@gmail.com",
+  "email": "geraldinhoMCR@hotmail.com",
   "password": "123456"
 }
