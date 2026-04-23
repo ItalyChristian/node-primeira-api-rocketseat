@@ -62,5 +62,5 @@ API: http://localhost:3333/courses (exemplo de rota)
 Documentação Swagger: http://localhost:3333/docs
 
 ---
-<img width="1361" height="569" alt="image" src="https://github.com/user-attachments/assets/410eb0fa-5b5a-4bf1-8fd6-a2e73e65e23e" />
+<img width="1361" height="633" alt="image" src="https://github.com/user-attachments/assets/285ea6b0-4fc7-43dc-96ce-f033081ee745" />
 
